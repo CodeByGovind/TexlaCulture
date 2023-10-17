@@ -11,15 +11,15 @@ export default function OtpUi() {
     },
     title: {
       width: width * 0.9,
-      fontSize: 24, color: 'blue', fontWeight: '500', paddingBottom: 5
+      fontSize: 24, color: '#3300ff', fontWeight: '500', paddingBottom: 5
     },
     mono: {
       width: width * 0.9,
-      fontSize: 20, color: '#000', fontWeight: '500', paddingBottom: 8
+      fontSize: 20, color: '#000000', fontWeight: '500', paddingBottom: 8
     },
     label: {
       width: width * 0.9,
-      fontSize: 14, color: 'grey', fontWeight: '400', paddingBottom: 10
+      fontSize: 14, color: '#000000', fontWeight: '500', paddingBottom: 10
     },
     input: {
       width: width * 0.9,
@@ -34,30 +34,17 @@ export default function OtpUi() {
       width: width * 0.9,
       marginBottom: 40,
     },
-    button: {
-      width: width * 0.9,
-      height: height * 0.08,
-      paddingVertical: 16,
-      paddingHorizontal: 24,
-      borderRadius: 12,
-      backgroundColor: 'blue',
-      marginBottom: 10,
-    },
-    buttonText: {
-      color: 'white',
-      fontSize: 16,
-      textAlign: 'center',
-    },
+ 
     footerText: {
       width: width * 0.9,
     },
   });
   return (
     <View style={styles.container}>
-      <Text style={styles.title}><Text style={{ backgroundColor: 'blue', color: '#fff', marginHorizontal: 10, fontWeight: 'bold', fontSize: 24 }}> TC </Text> TexlaCultre</Text>
+      <Text style={styles.title}><Text style={{ backgroundColor: '#3300ff', color: '#fff', marginHorizontal: 10, fontWeight: 'bold', fontSize: 24 }}> TC </Text> TexlaCulture</Text>
       <Text style={styles.mono}>Verify your Mobile Number</Text>
 
-      <Text style={styles.label}>Your Text Here</Text>
+      <Text style={styles.label}> Please enter code send to your mobile number ending with *****3848</Text>
 
       <TextInput
         style={styles.input}
@@ -67,7 +54,7 @@ export default function OtpUi() {
         maxLength={10}
       />
 
-      <Text style={styles.subtitle}>Subtitle Text</Text>
+      <Text style={styles.subtitle}>Didn't receive the code?<Text style={{color:'#3300ff'}}> Resend OTP 0:10sec</Text> </Text>
 
     </View>
   );

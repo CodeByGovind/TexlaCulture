@@ -1,8 +1,11 @@
-import React from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
-
-const MoNumberUi = ({navigation}) => {
+import React, { useRef, useState } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
+import PhoneInput from "react-native-phone-number-input";
+const MoNumberUi = ({ navigation }) => {
   const { width, height } = Dimensions.get('window');
+  const [value, setValue] = useState("");
+
+  const phoneInput = useRef();
   const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -11,24 +14,23 @@ const MoNumberUi = ({navigation}) => {
     },
     title: {
       width: width * 0.9,
-      fontSize: 24, color: 'blue', fontWeight: '500', paddingBottom: 5
+      fontSize: 24, color: '#3300ff', fontWeight: '500', paddingBottom: 5
     },
     mono: {
       width: width * 0.9,
-      fontSize: 20, color: '#000', fontWeight: '500', paddingBottom: 8
+      fontSize: 20, color: '#000000', fontWeight: '500', paddingBottom: 8
     },
     label: {
       width: width * 0.9,
-      fontSize: 14, color: 'grey', fontWeight: '400', paddingBottom: 10
+      fontSize: 14, color: '#000000', fontWeight: '500', paddingBottom: 10
     },
-    input: {
+    phoneInputContainer: {
       width: width * 0.9,
-      height: height * 0.08,
-      marginBottom: 8,
-      borderRadius: 5,
-      borderColor: 'gray',
-      borderWidth: 1,
-      paddingHorizontal: 10,
+      height: height * 0.1,
+      marginBottom: 20
+    },
+    phoneInputTextContainer: {
+      fontSize: 16, 
     },
     subtitle: {
       width: width * 0.9,
@@ -40,7 +42,7 @@ const MoNumberUi = ({navigation}) => {
       paddingVertical: 16,
       paddingHorizontal: 24,
       borderRadius: 12,
-      backgroundColor: 'blue',
+      backgroundColor: '#3300ff',
       marginBottom: 10,
     },
     buttonText: {
@@ -54,26 +56,30 @@ const MoNumberUi = ({navigation}) => {
   });
   return (
     <View style={styles.container}>
-      <Text style={styles.title}><Text style={{ backgroundColor: 'blue', color: '#fff', marginHorizontal: 10, fontWeight: 'bold', fontSize: 24 }}> TC </Text> TexlaCultre</Text>
+      <Text style={styles.title}><Text style={{ backgroundColor: '#3300ff', color: '#fff', marginHorizontal: 10, fontWeight: 'bold', fontSize: 24 }}> TC </Text> TexlaCulture</Text>
       <Text style={styles.mono}>Mobile Number</Text>
 
-      <Text style={styles.label}>Your Text Here</Text>
-
-      <TextInput
-        style={styles.input}
-        placeholder="Your Placeholder"
-        returnKeyType='done'
-        keyboardType='number-pad'
-        maxLength={10}
+      <Text style={styles.label}>We'll send you a one-time verification code.</Text>
+      <PhoneInput
+        ref={phoneInput}
+        defaultValue={value}
+        defaultCode="IN"
+        layout="first"
+        onChangeText={(text) => {
+          setValue(text)
+        }}
+        withDarkTheme
+        withShadow
+        autoFocus
+        containerStyle={styles.phoneInputContainer}
+        textContainerStyle={styles.phoneInputTextContainer}
       />
-
-      <Text style={styles.subtitle}>Subtitle Text</Text>
+      <Text style={styles.subtitle}>By Continuing, I agree to the <Text style={{color:'#3300ff'}}>Terms of Use & Privacy Policy</Text></Text>
 
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Otp')}>
         <Text style={styles.buttonText}>Get OTP</Text>
       </TouchableOpacity>
-
-      <Text style={styles.footerText}>Footer Text</Text>
+      <Text style={styles.footerText}>Having Trouble Logging in?<Text style={{color:'#3300ff'}}> Get Help</Text> </Text>
     </View>
   );
 };

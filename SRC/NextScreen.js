@@ -10,28 +10,28 @@ const NextScreen = ({ navigation }) => {
       alignItems: 'center',
     },
     image: {
-      width: width * 0.7, // Use a percentage of the screen width
-      height: height * 0.3, // Use a percentage of the screen height
+      width: width * 0.7,
+      height: height * 0.3, 
       resizeMode: 'cover',
     },
     text: {
-      width: width * 0.8, // Use a percentage of the screen width
+      width: width * 0.8, 
       fontSize: 22,
       textAlign: 'center', color: 'black', fontWeight: '600'
     },
     text1: {
-      width: width * 0.8, // Use a percentage of the screen width
+      width: width * 0.8, 
       fontSize: 15,
       textAlign: 'center', color: 'black', fontWeight: '600'
     },
     button: {
-      width: width * 0.7, // Use a percentage of the screen width
-      height: height * 0.08, // Use a percentage of the screen height
+      width: width * 0.7, 
+      height: height * 0.08,
       alignSelf: 'center',
       paddingVertical: 16,
       paddingHorizontal: 24,
       borderRadius: 12,
-      backgroundColor: 'blue',
+      backgroundColor: '#3300ff',
     },
     buttonText: {
       color: 'white',
@@ -49,7 +49,7 @@ const NextScreen = ({ navigation }) => {
       />
       <View>
         <Text style={styles.text}>Simplify HR Tasks</Text>
-        <Text style={styles.text1}>TexlaCultre's People Care System is designed to Manage your HR task</Text>
+        <Text style={styles.text1}>TexlaCulture's People Care System is designed to Manage your HR task</Text>
       </View>
 
       <TouchableOpacity
